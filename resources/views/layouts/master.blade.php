@@ -8,42 +8,39 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>@yield('title')</title>
+    <title>
+        @yield('title')
+    </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
-  </head>
+
+
 
   <body>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8 blog-main">
+ <main role="main">
+    <div>
+        @include('partials.header')
+    </div>
 
-          <div class="blog-post">
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
             @yield('content')
           </div>
+        </div>
 
-          </div><!-- /.blog-post -->
+        <hr>
 
-          <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-          </nav>
+      </div> <!-- /container -->
 
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-
-        </aside><!-- /.blog-sidebar -->
-
-      </div><!-- /.row -->
-
-    </main><!-- /.container -->
+    </main>
+    @include('partials.footer')
   </body>
 </html>
