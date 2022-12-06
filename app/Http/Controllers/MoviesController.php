@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use Illuminate\Support\Facades\Route;
 
 class MoviesController extends Controller
 {
@@ -13,9 +13,14 @@ class MoviesController extends Controller
         return view('movies.movies', compact('movies'));
     }
 
-    public function show($id) {
+    public function show($id){
         $movies = Movie::all();
-        return view('movies.movies', compact('movies'));
+        $movie = Movie::with('comments')->find($id);
+        $currentPath= Route::getFacadeRoot()->current()->uri();
+        if ($currentPath=="movies/{id}/comments"){
+            return view('movies.comment', compact('movie', 'movies'));
+        }
+        return view('movies.movie', compact('movie'));
     }
 
     public function create() {
@@ -43,6 +48,8 @@ class MoviesController extends Controller
                 'storyline' => request('storyline')
             ]
             );
+
+            return redirect('/movies');
     }
 
 

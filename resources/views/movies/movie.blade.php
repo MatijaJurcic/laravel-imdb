@@ -9,6 +9,8 @@
     <hr>
     {{ $movie->year }}
     <hr>
+    {{ $movie->director }}
+    <hr>
     {{ $movie->storyline }}
 </h1>
 
