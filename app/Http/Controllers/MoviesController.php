@@ -17,8 +17,8 @@ class MoviesController extends Controller
         $movies = Movie::all();
         $movie = Movie::with('comments')->find($id);
         $currentPath= Route::getFacadeRoot()->current()->uri();
-        if ($currentPath=="movies/{id}/comments"){
-            return view('movies.comment', compact('movie', 'movies'));
+            if ($currentPath=="movies/{id}/comments"){
+                return view('movies.comment', compact('movie', 'movies'));
         }
         return view('movies.movie', compact('movie'));
     }
